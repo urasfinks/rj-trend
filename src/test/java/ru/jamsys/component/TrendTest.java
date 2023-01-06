@@ -17,9 +17,20 @@ class TrendTest {
     @Test
     void get() {
         Trend bean = App.context.getBean(Trend.class);
-        Assertions.assertEquals(Double.parseDouble("27.700000000000017"), bean.get(2, new double[]{13, 25, 98, 40, 15, 66}), "#1");
-        Assertions.assertEquals(Double.parseDouble("160.00000000000068"), bean.get(3, new double[]{13, 25, 98, 40, 15, 66}), "#2");
-        Assertions.assertEquals(Double.parseDouble("512.4999999999927"), bean.get(4, new double[]{13, 25, 98, 40, 15, 66}), "#3");
-        Assertions.assertEquals(Double.parseDouble("512.4999999999927"), bean.get(5, new double[]{13, 25, 98, 40, 15, 66}), "#3");
+        Assertions.assertEquals(28, Math.round(bean.get(2, new double[]{13, 25, 98, 40, 15, 66})), "#1");
+        Assertions.assertEquals(160, Math.round(bean.get(3, new double[]{13, 25, 98, 40, 15, 66})), "#2");
+        Assertions.assertEquals(512, Math.round(bean.get(4, new double[]{13, 25, 98, 40, 15, 66})), "#3");
+        Assertions.assertEquals(506, Math.round(bean.get(5, new double[]{13, 25, 98, 40, 15, 66, 300})), "#4");
+
+    }
+
+    @Test
+    void getPredict() {
+        Trend bean = App.context.getBean(Trend.class);
+        Assertions.assertEquals(5, Math.round(bean.get(2, new double[]{1, 2, 3, 4})), "#1");
+        Assertions.assertEquals(5, Math.round(bean.get(2, new double[]{1, 2, 3, 4}, 5)), "#2");
+        Assertions.assertEquals(6, Math.round(bean.get(2, new double[]{1, 2, 3, 4}, 6)), "#3");
+        Assertions.assertEquals(7, Math.round(bean.get(3, new double[]{1, 2, 3, 4, 5}, 7)), "#4");
+
     }
 }

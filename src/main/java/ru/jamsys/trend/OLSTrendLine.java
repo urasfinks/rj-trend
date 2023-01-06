@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 public abstract class OLSTrendLine implements TrendLine {
 
-    RealMatrix coefficient = null; // will hold prediction coefs once we get values
+    protected RealMatrix coefficient = null; // will hold prediction coefs once we get values
 
     protected abstract double[] xVector(double x); // create vector of values from x
 
