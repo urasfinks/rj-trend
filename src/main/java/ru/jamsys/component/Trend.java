@@ -9,7 +9,7 @@ import ru.jamsys.trend.PolyTrendLine;
 public class Trend {
 
     public double get(int degree, double[] line) {
-        return get(degree, line, line.length + 1);
+        return get(degree, line, 1);
     }
 
     public double get(int degree, double[] line, double predict) {
@@ -19,7 +19,7 @@ public class Trend {
             x[i] = i + 1;
         }
         t.setValues(line, x);
-        return t.predict(predict);
+        return t.predict(line.length + predict);
     }
 
 }

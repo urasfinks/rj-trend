@@ -28,9 +28,9 @@ class TrendTest {
     void getPredict() {
         Trend bean = App.context.getBean(Trend.class);
         Assertions.assertEquals(5, Math.round(bean.get(2, new double[]{1, 2, 3, 4})), "#1");
-        Assertions.assertEquals(5, Math.round(bean.get(2, new double[]{1, 2, 3, 4}, 5)), "#2");
-        Assertions.assertEquals(6, Math.round(bean.get(2, new double[]{1, 2, 3, 4}, 6)), "#3");
-        Assertions.assertEquals(7, Math.round(bean.get(3, new double[]{1, 2, 3, 4, 5}, 7)), "#4");
+        Assertions.assertEquals(5, Math.round(bean.get(2, new double[]{1, 2, 3, 4}, 1)), "#2");
+        Assertions.assertEquals(6, Math.round(bean.get(2, new double[]{1, 2, 3, 4}, 2)), "#3");
+        Assertions.assertEquals(7, Math.round(bean.get(3, new double[]{1, 2, 3, 4, 5}, 2)), "#4");
 
     }
 }
